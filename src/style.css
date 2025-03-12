@@ -251,6 +251,7 @@ label {
   align-items: center;
   border-radius: 5px;
   border: none;
+  color: white;
 }
 
 .edit-to-do-btn {

@@ -47,3 +47,11 @@ class ToDo {
     this.isEditing = false;
   }
 }
+
+addProjectForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+});
+
+addToDoForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+});
