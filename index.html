@@ -13,16 +13,16 @@
         <button class="add-project-btn">+ ADD PROJECT</button>
         <p class="text">Projects 🡫</p>
 
-        <form class="add-project-form">
+        <form class="add-project-form hidden">
           <!-- prettier-ignore -->
-          <input class="input-project-name" type="text" placeholder="Project Name" />
+          <input class="input-project-name" type="text" placeholder="Project Name" required />
           <!-- prettier-ignore -->
           <div class="project-btns"> <button class="confirm-project-btn">ADD</button>  <button class="cancel-project-btn">CANCEL</button> </div>
         </form>
 
         <ul class="projects-list">
           <!-- prettier-ignore -->
-          <li class="project-item">Project Name <button class="delete-project-btn">X</button></li>
+          <li class="project-item hidden">Project Name <button class="delete-project-btn">X</button></li>
         </ul>
       </div>
 
@@ -30,14 +30,14 @@
         <button class="add-to-do-btn">+ ADD TO DO</button>
         <p class="text">To-Do 🡫</p>
 
-        <form class="add-to-do-form">
+        <form class="add-to-do-form hidden">
           <div class="to-do-inputs">
             <label>To-Do:</label>
             <!-- prettier-ignore -->
-            <input class="input-to-do-name" type="text" placeholder="To-Do Name" />
+            <input class="input-to-do-name" type="text" placeholder="To-Do Name" required />
             <label>Due:</label>
             <!-- prettier-ignore -->
-            <input class="input-to-do-date" type="date" />
+            <input class="input-to-do-date" type="date"  required/>
           </div>
           <!-- prettier-ignore -->
           <div class="to-do-btns"> <button class="confirm-to-do-btn">ADD</button>  <button class="cancel-to-do-btn">CANCEL</button> </div>
@@ -45,7 +45,7 @@
 
         <ul class="to-do-list">
           <!-- prettier-ignore -->
-          <li class="to-do-item"><p class="title-text"> Title: <span class="title">to do 1</span> </p>
+          <li class="to-do-item hidden"><p class="title-text"> Title: <span class="title">to do 1</span> </p>
             <div class="to-do-info">
               <!-- prettier-ignore -->
               <p class="date-text"> Date: <span class="date">09.08.2025.</span></p>

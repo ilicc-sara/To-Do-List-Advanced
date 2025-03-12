@@ -7,16 +7,18 @@
 html {
   font-family: sans-serif;
   background-color: #718e96;
+  color: rgb(44, 44, 44);
 }
 
 .heading {
   margin-left: 50px;
+  margin-top: 30px;
 }
 
 .container {
-  background-color: rgb(191, 191, 191);
-  margin: 70px auto;
-  height: 540px;
+  background-color: rgb(228, 226, 226);
+  margin: 30px auto;
+  height: 580px;
   display: grid;
   grid-template-columns: 1fr 3fr;
 }
@@ -47,6 +49,7 @@ html {
   background: none;
   font-weight: bold;
   transition: all 0.3s;
+  color: rgb(44, 44, 44);
 }
 
 .add-project-btn:hover,
@@ -67,7 +70,7 @@ html {
 }
 
 .add-project-form {
-  border: 1px solid rgb(27, 27, 27);
+  /* border: 1px solid rgb(27, 27, 27); */
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.114);
 }
@@ -118,7 +121,7 @@ html {
   display: grid;
   grid-template-columns: 0.5fr 5fr 0.5fr 5fr;
   place-items: center;
-  border: 1px solid rgb(27, 27, 27);
+  /* border: 1px solid rgb(27, 27, 27); */
   padding: 15px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.114);
@@ -146,6 +149,8 @@ label {
   width: 45%;
   height: 40px;
   transition: all 0.3s;
+  color: white;
+  font-size: 20px;
 }
 
 .confirm-to-do-btn {
@@ -173,7 +178,7 @@ label {
 
 .project-item {
   /* background-color: rgb(105, 105, 188); */
-  border: 0.5px solid black;
+  border: 0.5px solid rgba(0, 0, 0, 0.648);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -195,7 +200,7 @@ label {
   width: 20px;
   border-radius: 777px;
   color: black;
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
 }
 
 .to-do-list {
@@ -204,7 +209,7 @@ label {
 }
 
 .to-do-item {
-  border: 0.5px solid black;
+  border: 0.5px solid rgba(0, 0, 0, 0.648);
   display: flex;
   gap: 10px;
   justify-content: space-between;
@@ -260,7 +265,7 @@ label {
   width: 20px;
   height: 20px;
   appearance: none; /* Removes default styling */
-  border: 0.5px solid black;
+  border: 0.5px solid rgba(0, 0, 0, 0.648);
   background-color: white;
   cursor: pointer;
 }
@@ -279,4 +284,8 @@ label {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -60%);
+}
+
+.hidden {
+  display: none;
 }
