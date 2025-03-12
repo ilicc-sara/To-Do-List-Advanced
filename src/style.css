@@ -46,6 +46,7 @@ html {
   font-size: 20px;
   background: none;
   font-weight: bold;
+  transition: all 0.3s;
 }
 
 .add-project-btn:hover,
@@ -58,21 +59,32 @@ html {
   font-size: 18px;
 }
 
-.add-project-form {
-  background-color: pink;
+.add-project-form,
+.add-to-do-form {
+  background-color: rgba(255, 192, 203, 0);
   width: 80%;
   padding: 10px 5px;
 }
 
-.input-project-name {
+.add-to-do-form {
+  width: 90%;
+}
+
+.input-project-name,
+.input-to-do-name,
+.input-to-do-date {
   height: 30px;
-  width: 100%;
   padding-left: 10px;
   font-family: inherit;
   font-size: 20px;
   border-radius: 5px;
   border: none;
+  width: 100%;
 }
+
+/* .input-project-name {
+  width: 100%;
+} */
 
 .project-btns {
   display: flex;
@@ -81,10 +93,69 @@ html {
 
 .confirm-project-btn,
 .cancel-project-btn {
-  background-color: aquamarine;
+  background-color: rgb(195, 194, 194);
   border-radius: 5px;
   border: none;
   margin-top: 10px;
   height: 25px;
   padding: 0 10px;
+  transition: all 0.3s;
+}
+
+.confirm-project-btn:hover,
+.cancel-project-btn:hover {
+  background-color: rgb(223, 223, 223);
+  cursor: pointer;
+}
+
+.to-do-inputs {
+  display: grid;
+  grid-template-columns: 0.5fr 5fr 0.5fr 5fr;
+  place-items: center;
+  border: 1px solid rgb(27, 27, 27);
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.114);
+}
+
+label {
+  font-size: 14px;
+  color: rgb(47, 47, 47);
+}
+
+.to-do-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 0 18px;
+}
+
+.confirm-to-do-btn,
+.cancel-to-do-btn {
+  border-radius: 5px;
+  border: none;
+  margin-top: -5px;
+  height: 25px;
+  padding: 0 10px;
+  width: 45%;
+  height: 40px;
+  transition: all 0.3s;
+}
+
+.confirm-to-do-btn {
+  background-color: rgba(121, 8, 8, 0.552);
+}
+
+.cancel-to-do-btn {
+  background-color: rgba(6, 77, 6, 0.562);
+}
+
+.confirm-to-do-btn:hover {
+  cursor: pointer;
+  background-color: rgba(48, 4, 4, 0.552);
+}
+
+.cancel-to-do-btn:hover {
+  cursor: pointer;
+  background-color: rgba(5, 41, 5, 0.562);
 }
