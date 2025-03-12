@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  background-color: #718e96;
+}
+
+.heading {
+  margin-left: 50px;
+}
+
+.container {
+  background-color: rgb(191, 191, 191);
+  margin: 70px auto;
+  height: 540px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.project-container {
+  background-color: rgb(97, 101, 115);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.to-do-container {
+  background-color: rgb(161, 123, 123);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-project-btn,
+.add-to-do-btn {
+  width: 80%;
+  height: 40px;
+  margin-top: 10px;
+  border: none;
+  font-size: 20px;
+  background: none;
+  font-weight: bold;
+}
+
+.add-project-btn:hover,
+.add-to-do-btn:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.353);
+}
+
+.text {
+  font-size: 18px;
+}
+
+.add-project-form {
+  background-color: pink;
+  width: 80%;
+  padding: 10px 5px;
+}
+
+.input-project-name {
+  height: 30px;
+  width: 100%;
+  padding-left: 10px;
+  font-family: inherit;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.project-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.confirm-project-btn,
+.cancel-project-btn {
+  background-color: aquamarine;
+  border-radius: 5px;
+  border: none;
+  margin-top: 10px;
+  height: 25px;
+  padding: 0 10px;
+}
