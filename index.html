@@ -19,6 +19,11 @@
           <!-- prettier-ignore -->
           <div class="project-btns"> <button class="confirm-project-btn">ADD</button>  <button class="cancel-project-btn">CANCEL</button> </div>
         </form>
+
+        <ul class="projects-list">
+          <!-- prettier-ignore -->
+          <li class="project-item">Project Name <button class="delete-project-btn">X</button></li>
+        </ul>
       </div>
 
       <div class="to-do-container">
@@ -34,13 +39,28 @@
             <!-- prettier-ignore -->
             <input class="input-to-do-date" type="date" />
           </div>
-
           <!-- prettier-ignore -->
           <div class="to-do-btns"> <button class="confirm-to-do-btn">ADD</button>  <button class="cancel-to-do-btn">CANCEL</button> </div>
         </form>
+
+        <ul class="to-do-list">
+          <!-- prettier-ignore -->
+          <li class="to-do-item"><p>Title: <span>to do 1</span> </p>   <p>Date: <span>09.08.2025.</span></p>
+            <button>Edit</button> <button>Delete</button>
+            <input type="checkbox" />
+          </li>
+        </ul>
       </div>
     </div>
 
     <script type="module" src="/src/main.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

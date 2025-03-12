@@ -61,9 +61,15 @@ html {
 
 .add-project-form,
 .add-to-do-form {
-  background-color: rgba(255, 192, 203, 0);
+  /* background-color: rgb(188, 69, 89); */
   width: 80%;
   padding: 10px 5px;
+}
+
+.add-project-form {
+  border: 1px solid rgb(27, 27, 27);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.114);
 }
 
 .add-to-do-form {
@@ -158,4 +164,42 @@ label {
 .cancel-to-do-btn:hover {
   cursor: pointer;
   background-color: rgba(5, 41, 5, 0.562);
+}
+
+.projects-list {
+  list-style: none;
+  width: 80%;
+}
+
+.project-item {
+  background-color: rgb(105, 105, 188);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.delete-project-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 777px;
+  color: black;
+  border: 1px solid black;
+}
+
+.to-do-list {
+  list-style: none;
+  width: 85%;
+}
+
+.to-do-item {
+  background-color: pink;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
 }
