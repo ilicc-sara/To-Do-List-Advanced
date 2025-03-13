@@ -43,11 +43,16 @@ class ProjectManager {
   addProjects(project) {
     this.projects.push(project);
   }
+
+  removeProject(id) {
+    this.projects = this.projects.filter((item) => item.id !== id);
+  }
 }
 
 class Project {
   constructor(projectName) {
     this.projectName = projectName;
+    this.id = crypto.randomUUID();
     this.toDos = [];
   }
 
@@ -76,6 +81,7 @@ addProjectForm.addEventListener("submit", function (e) {
   console.log(projectManager.projects);
 
   const projectItem = document.createElement("li");
+  projectItem.setAttribute("data-id", project.id);
   projectItem.innerHTML = `${inputProject} <button class="delete-project-btn">X</button>`;
   projectItem.className = "project-item";
 
@@ -87,6 +93,8 @@ projectsList.addEventListener("click", function (e) {
   if (!e.target.classList.contains("delete-project-btn")) return;
   const target = e.target.closest(".project-item");
   target.remove();
+
+  projectManager.removeProject(target.dataset.id);
 });
 
 addToDoForm.addEventListener("submit", function (e) {
