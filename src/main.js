@@ -47,6 +47,10 @@ class ProjectManager {
   removeProject(id) {
     this.projects = this.projects.filter((item) => item.id !== id);
   }
+
+  setActiveProject(id) {
+    this.activeProject = this.projects.find((project) => project.id === id);
+  }
 }
 
 class Project {
@@ -54,10 +58,6 @@ class Project {
     this.projectName = projectName;
     this.id = crypto.randomUUID();
     this.toDos = [];
-  }
-
-  setActiveProject(project) {
-    this.activeProject = project;
   }
 }
 
@@ -77,8 +77,6 @@ addProjectForm.addEventListener("submit", function (e) {
 
   const project = new Project(inputProject);
   projectManager.addProjects(project);
-  console.log(project);
-  console.log(projectManager.projects);
 
   const projectItem = document.createElement("li");
   projectItem.setAttribute("data-id", project.id);
@@ -90,11 +88,18 @@ addProjectForm.addEventListener("submit", function (e) {
 });
 
 projectsList.addEventListener("click", function (e) {
-  if (!e.target.classList.contains("delete-project-btn")) return;
+  // prettier-ignore
+  if (!e.target.classList.contains("delete-project-btn") && !e.target.classList.contains('project-item')) return;
   const target = e.target.closest(".project-item");
-  target.remove();
 
-  projectManager.removeProject(target.dataset.id);
+  if (e.target.classList.contains("project-item")) {
+    projectManager.setActiveProject(target.dataset.id);
+  }
+
+  if (e.target.classList.contains("delete-project-btn")) {
+    target.remove();
+    projectManager.removeProject(target.dataset.id);
+  }
 });
 
 addToDoForm.addEventListener("submit", function (e) {
