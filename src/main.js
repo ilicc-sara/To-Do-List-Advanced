@@ -83,6 +83,12 @@ addProjectForm.addEventListener("submit", function (e) {
   inputProjectNameEl.value = "";
 });
 
+projectsList.addEventListener("click", function (e) {
+  if (!e.target.classList.contains("delete-project-btn")) return;
+  const target = e.target.closest(".project-item");
+  target.remove();
+});
+
 addToDoForm.addEventListener("submit", function (e) {
   e.preventDefault();
 });
