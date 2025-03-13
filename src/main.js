@@ -1,18 +1,7 @@
 "use strict";
 import "./style.css";
-
-const inputProjectNameEl = document.querySelector(".input-project-name");
-const inputToDoNameEl = document.querySelector(".input-to-do-name");
-const inputDateEl = document.querySelector(".input-to-do-date");
-
-const addProjectEl = document.querySelector(".add-project-btn");
-const addProjectForm = document.querySelector(".add-project-form");
-
-const addToDoEl = document.querySelector(".add-to-do-btn");
-const addToDoForm = document.querySelector(".add-to-do-form");
-
-const projectsList = document.querySelector(".projects-list");
-const toDoList = document.querySelector(".to-do-list");
+// prettier-ignore
+import {inputProjectNameEl, inputToDoNameEl, inputDateEl, addProjectEl, addProjectForm, addToDoEl, addToDoForm, projectsList, toDoList} from "./helpers";
 
 let inputProject;
 let inputToDoName;
