@@ -104,6 +104,21 @@ projectsList.addEventListener("click", function (e) {
 
   if (e.target.classList.contains("project-item")) {
     projectManager.setActiveProject(target.dataset.id);
+    // toDoList.innerHTML = "";
+
+    // const toDoItem = document.createElement("li");
+    // toDoItem.setAttribute("data-id", projectManager.activeProject.id);
+
+    // toDoItem.innerHTML = `<p class="title-text"> Title: <span class="title"> ${projectManager.activeProject.name} </span> </p>
+    //           <div class="to-do-info">
+    //             <p class="date-text"> Date: <span class="date"> ${projectManager.activeProject.date} </span></p>
+    //             <div class="btn-cont"> <button class="edit-to-do-btn">edit</button> <button class="delete-to-do-btn">delete</button> </div>
+    //             <input class="check" type="checkbox" />
+    //           </div>`;
+
+    // toDoItem.className = "to-do-item";
+
+    // toDoList.appendChild(toDoItem);
   }
 
   if (e.target.classList.contains("delete-project-btn")) {
@@ -119,7 +134,6 @@ addToDoForm.addEventListener("submit", function (e) {
   // projectManager.addProjects();
   projectManager.activeProject.addToDo(toDo);
 
-  console.log("array projekata", projectManager.projects);
   // console.log(projectManager.activeProject.toDos);
 
   const toDoItem = document.createElement("li");
@@ -136,6 +150,8 @@ addToDoForm.addEventListener("submit", function (e) {
 
   toDoList.appendChild(toDoItem);
 
+  console.log(projectManager.projects);
+
   inputToDoNameEl.value = "";
   inputDateEl.value = "";
 });
@@ -149,6 +165,5 @@ toDoList.addEventListener("click", function (e) {
     target.remove();
     // projectManager.removeProject(target.dataset.id);
     projectManager.activeProject.removeToDo(target.dataset.id);
-    console.log(projectManager.activeProject.toDos);
   }
 });
