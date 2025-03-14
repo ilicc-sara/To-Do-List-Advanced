@@ -71,6 +71,10 @@ class ToDo {
     this.isDone = false;
     this.isEditing = false;
   }
+
+  setIsDone(value) {
+    this.isDone = value;
+  }
 }
 
 const projectManager = new ProjectManager();
@@ -122,8 +126,6 @@ projectsList.addEventListener("click", function (e) {
     projectItems.forEach((item) => item.classList.remove("active"));
     target.classList.add("active");
 
-    console.log(projectManager.projects);
-
     toDoList.innerHTML = "";
     projectManager.activeProject.toDos.forEach((toDo) => {
       updateUI(toDo.id, toDo.name, toDo.date);
@@ -144,8 +146,6 @@ addToDoForm.addEventListener("submit", function (e) {
 
   updateUI(toDo.id, inputToDoName, inputDate);
 
-  console.log(projectManager.projects);
-
   inputToDoNameEl.value = "";
   inputDateEl.value = "";
 
@@ -154,11 +154,17 @@ addToDoForm.addEventListener("submit", function (e) {
 
 toDoList.addEventListener("click", function (e) {
   // prettier-ignore
-  if (!e.target.classList.contains("delete-to-do-btn")) return;
+  if (!e.target.classList.contains("delete-to-do-btn") && !e.target.classList.contains('check')) return;
   const target = e.target.closest(".to-do-item");
+  // prettier-ignore
+  const targetToDo = projectManager.activeProject.toDos.find(toDo => toDo.id === target.dataset.id);
 
   if (e.target.classList.contains("delete-to-do-btn")) {
     target.remove();
     projectManager.activeProject.removeToDo(target.dataset.id);
+  }
+
+  if (e.target.classList.contains("check")) {
+    targetToDo.setIsDone(e.target.checked);
   }
 });

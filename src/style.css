@@ -13,6 +13,7 @@ html {
 .heading {
   margin-left: 50px;
   margin-top: 30px;
+  color: rgb(228, 226, 226);
 }
 
 .container {
@@ -297,6 +298,10 @@ label {
 
 .hidden {
   display: none;
+  /* opacity: 1;
+  pointer-events: auto;
+  visibility: visible; */
+  /* transform: translate(0); */
 }
 
 .active {
