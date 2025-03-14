@@ -300,5 +300,6 @@ label {
 }
 
 .active {
-  border: 2px solid #e52a5a;
+  border-color: #e52a5a;
+  box-shadow: 0 0 10px #e52a5a;
 }

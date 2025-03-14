@@ -47,7 +47,7 @@ class Project {
     this.projectName = projectName;
     this.id = crypto.randomUUID();
     this.toDos = [];
-    this.isActive = false;
+    // this.isActive = false;
   }
 
   addToDo(toDo) {
