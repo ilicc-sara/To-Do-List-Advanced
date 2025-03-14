@@ -71,6 +71,22 @@ class ToDo {
 
 const projectManager = new ProjectManager();
 
+function updateUI(id, name, date) {
+  const toDoItem = document.createElement("li");
+  toDoItem.setAttribute("data-id", id);
+
+  toDoItem.innerHTML = `<p class="title-text"> Title: <span class="title"> ${name} </span> </p>
+            <div class="to-do-info">
+              <p class="date-text"> Date: <span class="date"> ${date} </span></p>
+              <div class="btn-cont"> <button class="edit-to-do-btn">edit</button> <button class="delete-to-do-btn">delete</button> </div>
+              <input class="check" type="checkbox" />
+            </div>`;
+
+  toDoItem.className = "to-do-item";
+
+  toDoList.appendChild(toDoItem);
+}
+
 addProjectForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -84,6 +100,8 @@ addProjectForm.addEventListener("submit", function (e) {
 
   projectsList.appendChild(projectItem);
   inputProjectNameEl.value = "";
+
+  addProjectForm.classList.add("hidden");
 });
 
 projectsList.addEventListener("click", function (e) {
@@ -93,21 +111,11 @@ projectsList.addEventListener("click", function (e) {
 
   if (e.target.classList.contains("project-item")) {
     projectManager.setActiveProject(target.dataset.id);
-    // toDoList.innerHTML = "";
 
-    // const toDoItem = document.createElement("li");
-    // toDoItem.setAttribute("data-id", projectManager.activeProject.id);
-
-    // toDoItem.innerHTML = `<p class="title-text"> Title: <span class="title"> ${projectManager.activeProject.name} </span> </p>
-    //           <div class="to-do-info">
-    //             <p class="date-text"> Date: <span class="date"> ${projectManager.activeProject.date} </span></p>
-    //             <div class="btn-cont"> <button class="edit-to-do-btn">edit</button> <button class="delete-to-do-btn">delete</button> </div>
-    //             <input class="check" type="checkbox" />
-    //           </div>`;
-
-    // toDoItem.className = "to-do-item";
-
-    // toDoList.appendChild(toDoItem);
+    toDoList.innerHTML = "";
+    projectManager.activeProject.toDos.forEach((toDo) => {
+      updateUI(toDo.id, toDo.name, toDo.date);
+    });
   }
 
   if (e.target.classList.contains("delete-project-btn")) {
@@ -125,24 +133,14 @@ addToDoForm.addEventListener("submit", function (e) {
 
   // console.log(projectManager.activeProject.toDos);
 
-  const toDoItem = document.createElement("li");
-  toDoItem.setAttribute("data-id", toDo.id);
-
-  toDoItem.innerHTML = `<p class="title-text"> Title: <span class="title"> ${inputToDoName} </span> </p>
-            <div class="to-do-info">
-              <p class="date-text"> Date: <span class="date"> ${inputDate} </span></p>
-              <div class="btn-cont"> <button class="edit-to-do-btn">edit</button> <button class="delete-to-do-btn">delete</button> </div>
-              <input class="check" type="checkbox" />
-            </div>`;
-
-  toDoItem.className = "to-do-item";
-
-  toDoList.appendChild(toDoItem);
+  updateUI(toDo.id, inputToDoName, inputDate);
 
   console.log(projectManager.projects);
 
   inputToDoNameEl.value = "";
   inputDateEl.value = "";
+
+  addToDoForm.classList.remove("hidden");
 });
 
 toDoList.addEventListener("click", function (e) {
@@ -152,7 +150,6 @@ toDoList.addEventListener("click", function (e) {
 
   if (e.target.classList.contains("delete-to-do-btn")) {
     target.remove();
-    // projectManager.removeProject(target.dataset.id);
     projectManager.activeProject.removeToDo(target.dataset.id);
   }
 });
