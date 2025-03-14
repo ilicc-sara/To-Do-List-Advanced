@@ -38,7 +38,6 @@ class ProjectManager {
   }
   setActiveProject(id) {
     this.activeProject = this.projects.find((project) => project.id === id);
-    this.activeProject.isActive === false ? true : false;
   }
 }
 
@@ -145,11 +144,10 @@ addToDoForm.addEventListener("submit", function (e) {
   projectManager.activeProject.addToDo(toDo);
 
   updateUI(toDo.id, inputToDoName, inputDate);
+  console.log(projectManager.projects);
 
   inputToDoNameEl.value = "";
   inputDateEl.value = "";
-
-  // addToDoForm.classList.remove("hidden");
 });
 
 toDoList.addEventListener("click", function (e) {
@@ -166,5 +164,6 @@ toDoList.addEventListener("click", function (e) {
 
   if (e.target.classList.contains("check")) {
     targetToDo.setIsDone(e.target.checked);
+    console.log(projectManager.activeProject.toDos);
   }
 });
