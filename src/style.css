@@ -298,3 +298,7 @@ label {
 .hidden {
   display: none;
 }
+
+.active {
+  border: 2px solid #e52a5a;
+}

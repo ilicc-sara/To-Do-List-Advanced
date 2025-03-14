@@ -33,13 +33,12 @@ class ProjectManager {
   addProjects(project) {
     this.projects.push(project);
   }
-
   removeProject(id) {
     this.projects = this.projects.filter((item) => item.id !== id);
   }
-
   setActiveProject(id) {
     this.activeProject = this.projects.find((project) => project.id === id);
+    this.activeProject.isActive === false ? true : false;
   }
 }
 
@@ -48,6 +47,7 @@ class Project {
     this.projectName = projectName;
     this.id = crypto.randomUUID();
     this.toDos = [];
+    this.isActive = false;
   }
 
   addToDo(toDo) {
@@ -56,6 +56,10 @@ class Project {
 
   removeToDo(id) {
     this.toDos = this.toDos.filter((item) => item.id !== id);
+  }
+
+  setIsActive(value) {
+    return (this.isActive = value);
   }
 }
 
@@ -100,17 +104,25 @@ addProjectForm.addEventListener("submit", function (e) {
 
   projectsList.appendChild(projectItem);
   inputProjectNameEl.value = "";
-
-  addProjectForm.classList.add("hidden");
 });
 
 projectsList.addEventListener("click", function (e) {
   // prettier-ignore
   if (!e.target.classList.contains("delete-project-btn") && !e.target.classList.contains('project-item')) return;
   const target = e.target.closest(".project-item");
+  const projectItems = projectsList.querySelectorAll(".project-item");
 
   if (e.target.classList.contains("project-item")) {
     projectManager.setActiveProject(target.dataset.id);
+
+    // projectManager.projects.forEach((project) => project.setIsActive(false));
+    // projectManager.activeProject.setIsActive(true);
+    // const targetProject = projectManager.projects.find(project => project.id === target.dataset.id);
+
+    projectItems.forEach((item) => item.classList.remove("active"));
+    target.classList.add("active");
+
+    console.log(projectManager.projects);
 
     toDoList.innerHTML = "";
     projectManager.activeProject.toDos.forEach((toDo) => {
@@ -126,12 +138,9 @@ projectsList.addEventListener("click", function (e) {
 
 addToDoForm.addEventListener("submit", function (e) {
   e.preventDefault();
-
   const toDo = new ToDo(inputToDoName, inputDate);
-  // projectManager.addProjects();
-  projectManager.activeProject.addToDo(toDo);
 
-  // console.log(projectManager.activeProject.toDos);
+  projectManager.activeProject.addToDo(toDo);
 
   updateUI(toDo.id, inputToDoName, inputDate);
 
@@ -140,7 +149,7 @@ addToDoForm.addEventListener("submit", function (e) {
   inputToDoNameEl.value = "";
   inputDateEl.value = "";
 
-  addToDoForm.classList.remove("hidden");
+  // addToDoForm.classList.remove("hidden");
 });
 
 toDoList.addEventListener("click", function (e) {
