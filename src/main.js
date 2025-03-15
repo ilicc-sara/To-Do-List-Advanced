@@ -57,9 +57,9 @@ class Project {
     this.toDos = this.toDos.filter((item) => item.id !== id);
   }
 
-  setIsActive(value) {
-    return (this.isActive = value);
-  }
+  // setIsActive(value) {
+  //   this.isActive = value;
+  // }
 }
 
 class ToDo {
@@ -73,6 +73,10 @@ class ToDo {
 
   setIsDone(value) {
     this.isDone = value;
+  }
+
+  setIsEditing(value) {
+    this.isEditing = value;
   }
 }
 
@@ -152,7 +156,7 @@ addToDoForm.addEventListener("submit", function (e) {
 
 toDoList.addEventListener("click", function (e) {
   // prettier-ignore
-  if (!e.target.classList.contains("delete-to-do-btn") && !e.target.classList.contains('check')) return;
+  if (!e.target.classList.contains("delete-to-do-btn") && !e.target.classList.contains('check') && !e.target.classList.contains("edit-to-do-btn")) return;
   const target = e.target.closest(".to-do-item");
   // prettier-ignore
   const targetToDo = projectManager.activeProject.toDos.find(toDo => toDo.id === target.dataset.id);
@@ -165,5 +169,12 @@ toDoList.addEventListener("click", function (e) {
   if (e.target.classList.contains("check")) {
     targetToDo.setIsDone(e.target.checked);
     console.log(projectManager.activeProject.toDos);
+  }
+
+  if (e.target.classList.contains("edit-to-do-btn")) {
+    console.log("kliknuto dugme za editovanje");
+
+    targetToDo.setIsEditing(true);
+    console.log(targetToDo);
   }
 });
