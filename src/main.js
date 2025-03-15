@@ -187,13 +187,15 @@ toDoList.addEventListener("click", function (e) {
         toDoItem.innerHTML = `<p class="title-text"> Title: <input class="title" type="text" value="${toDo.name}" required /> </p>
             <div class="to-do-info">
               <p class="date-text"> Date: <input class="date" type="date" value="${toDo.date}" /> </p>
-              <div class="btn-cont"> <button class="edit-to-do-btn">submit</button> <button class="delete-to-do-btn">delete</button> </div>
+              <div class="btn-cont"> <button class="submit-to-do-btn">submit</button> <button class="delete-to-do-btn">delete</button> </div>
               <input class="check" type="checkbox" />
             </div>`;
-
         toDoItem.className = "to-do-item";
-
         toDoList.appendChild(toDoItem);
+      }
+
+      if (e.target.classList.contains("submit-to-do-btn")) {
+        console.log("dugme za submit");
       }
     });
   }

@@ -250,7 +250,8 @@ label {
 }
 
 .edit-to-do-btn,
-.delete-to-do-btn {
+.delete-to-do-btn,
+.submit-to-do-btn {
   height: 30px;
   font-size: 20px;
   padding: 5px 15px;
@@ -269,6 +270,10 @@ label {
 
 .delete-to-do-btn {
   background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+.submit-to-do-btn {
+  background-image: linear-gradient(to top left, #0b4609, #45ae1b);
 }
 
 .check {
