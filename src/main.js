@@ -175,6 +175,26 @@ toDoList.addEventListener("click", function (e) {
     console.log("kliknuto dugme za editovanje");
 
     targetToDo.setIsEditing(true);
-    console.log(targetToDo);
+
+    toDoList.innerHTML = "";
+    projectManager.activeProject.toDos.forEach((toDo) => {
+      if (!toDo.isEditing) {
+        updateUI(toDo.id, toDo.name, toDo.date);
+      } else {
+        const toDoItem = document.createElement("form");
+        toDoItem.setAttribute("data-id", toDo.id);
+        //
+        toDoItem.innerHTML = `<p class="title-text"> Title: <input class="title" type="text" value="${toDo.name}" required /> </p>
+            <div class="to-do-info">
+              <p class="date-text"> Date: <input class="date" type="date" value="${toDo.date}" /> </p>
+              <div class="btn-cont"> <button class="edit-to-do-btn">submit</button> <button class="delete-to-do-btn">delete</button> </div>
+              <input class="check" type="checkbox" />
+            </div>`;
+
+        toDoItem.className = "to-do-item";
+
+        toDoList.appendChild(toDoItem);
+      }
+    });
   }
 });
