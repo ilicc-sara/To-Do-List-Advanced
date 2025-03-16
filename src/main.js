@@ -78,6 +78,14 @@ class ToDo {
   setIsEditing(value) {
     this.isEditing = value;
   }
+
+  setName(name) {
+    this.name = name;
+  }
+
+  setDate(date) {
+    this.date = date;
+  }
 }
 
 const projectManager = new ProjectManager();
@@ -156,10 +164,34 @@ addToDoForm.addEventListener("submit", function (e) {
 
 toDoList.addEventListener("click", function (e) {
   // prettier-ignore
-  if (!e.target.classList.contains("delete-to-do-btn") && !e.target.classList.contains('check') && !e.target.classList.contains("edit-to-do-btn")) return;
+  if (!e.target.classList.contains("delete-to-do-btn") && !e.target.classList.contains('check') && !e.target.classList.contains("edit-to-do-btn") && !e.target.classList.contains("submit-to-do-btn")) return;
   const target = e.target.closest(".to-do-item");
   // prettier-ignore
   const targetToDo = projectManager.activeProject.toDos.find(toDo => toDo.id === target.dataset.id);
+
+  function submitForm() {
+    e.preventDefault();
+
+    console.log("form submited");
+
+    let name = document.querySelector(".title").value;
+    let date = document.querySelector(".date").value;
+    // console.log(name);
+    // console.log(date);
+    targetToDo.setIsEditing(false);
+
+    // targetToDo.setName(name);
+    // targetToDo.setDate(date);
+    // console.log(targetToDo.name);
+    // console.log(targetToDo.date);
+
+    toDoList.innerHTML = "";
+    console.log(projectManager.activeProject); //*************************************************** */
+    projectManager.activeProject.toDos.forEach((toDo) => {
+      updateUI(toDo.id, toDo.name, toDo.date);
+    });
+    console.log(projectManager.activeProject.toDos);
+  }
 
   if (e.target.classList.contains("delete-to-do-btn")) {
     target.remove();
@@ -172,8 +204,6 @@ toDoList.addEventListener("click", function (e) {
   }
 
   if (e.target.classList.contains("edit-to-do-btn")) {
-    console.log("kliknuto dugme za editovanje");
-
     targetToDo.setIsEditing(true);
 
     toDoList.innerHTML = "";
@@ -183,20 +213,41 @@ toDoList.addEventListener("click", function (e) {
       } else {
         const toDoItem = document.createElement("form");
         toDoItem.setAttribute("data-id", toDo.id);
-        //
+
         toDoItem.innerHTML = `<p class="title-text"> Title: <input class="title" type="text" value="${toDo.name}" required /> </p>
             <div class="to-do-info">
               <p class="date-text"> Date: <input class="date" type="date" value="${toDo.date}" /> </p>
-              <div class="btn-cont"> <button class="submit-to-do-btn">submit</button> <button class="delete-to-do-btn">delete</button> </div>
+              <div class="btn-cont"> <button type="submit" class="submit-to-do-btn">submit</button> <button type="button" class="delete-to-do-btn">delete</button> </div>
               <input class="check" type="checkbox" />
             </div>`;
         toDoItem.className = "to-do-item";
         toDoList.appendChild(toDoItem);
-      }
 
-      if (e.target.classList.contains("submit-to-do-btn")) {
-        console.log("dugme za submit");
+        toDoItem.addEventListener("submit", submitForm);
       }
     });
   }
+
+  if (e.target.classList.contains("submit-to-do-btn")) {
+    // toDoItem.addEventListener("submit", submitForm(e));
+  }
 });
+
+// query selecor sa forme na inpute
+// pokupi vrednost iz inputa
+// update todo u arr todos (id sa forme, )
+// pocisti event listener (za kraj)
+// update ui
+
+// target.remove();
+// toDoList.innerHTML = "";
+
+// projectManager.activeProject.toDos.forEach((toDo) => {
+//   updateUI(toDo.id, toDo.name, toDo.date);
+// });
+// console.log(projectManager.activeProject.toDos);
+
+// let name = target.querySelector(".title").value;
+// let date = target.querySelector(".date").value;
+
+// updateUI(targetToDo.id, name, date);
