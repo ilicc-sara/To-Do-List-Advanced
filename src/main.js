@@ -147,6 +147,7 @@ projectsList.addEventListener("click", function (e) {
   if (e.target.classList.contains("delete-project-btn")) {
     target.remove();
     projectManager.removeProject(target.dataset.id);
+    toDoList.innerHTML = "";
   }
 });
 

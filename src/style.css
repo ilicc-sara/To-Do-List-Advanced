@@ -328,3 +328,14 @@ label {
   border-color: #e52a5a;
   box-shadow: 0 0 10px #e52a5a;
 }
+
+.title,
+.date {
+  height: 30px;
+  padding-left: 10px;
+  font-family: inherit;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  width: 70%;
+}
