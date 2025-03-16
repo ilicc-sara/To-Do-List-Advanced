@@ -91,15 +91,16 @@ class ToDo {
 const projectManager = new ProjectManager();
 
 function updateUI(id, name, date) {
+  // da bih omogucima da ova funkcija moze da pravi i formu morala bih da imam aktivni to do
   const toDoItem = document.createElement("li");
   toDoItem.setAttribute("data-id", id);
 
   toDoItem.innerHTML = `<p class="title-text"> Title: <span class="title"> ${name} </span> </p>
-            <div class="to-do-info">
-              <p class="date-text"> Date: <span class="date"> ${date} </span></p>
-              <div class="btn-cont"> <button class="edit-to-do-btn">edit</button> <button class="delete-to-do-btn">delete</button> </div>
-              <input class="check" type="checkbox" />
-            </div>`;
+    <div class="to-do-info">
+    <p class="date-text"> Date: <span class="date"> ${date} </span></p>
+    <div class="btn-cont"> <button class="edit-to-do-btn">edit</button> <button class="delete-to-do-btn">delete</button> </div>
+    <input class="check" type="checkbox" />
+    </div>`;
 
   toDoItem.className = "to-do-item";
 
@@ -226,25 +227,6 @@ toDoList.addEventListener("click", function (e) {
   }
 
   if (e.target.classList.contains("submit-to-do-btn")) {
-    // toDoItem.addEventListener("submit", submitForm(e));
+    toDoItem.removeEventListener("submit", submitForm);
   }
 });
-
-// query selecor sa forme na inpute
-// pokupi vrednost iz inputa
-// update todo u arr todos (id sa forme, )
-// pocisti event listener (za kraj)
-// update ui
-
-// target.remove();
-// toDoList.innerHTML = "";
-
-// projectManager.activeProject.toDos.forEach((toDo) => {
-//   updateUI(toDo.id, toDo.name, toDo.date);
-// });
-// console.log(projectManager.activeProject.toDos);
-
-// let name = target.querySelector(".title").value;
-// let date = target.querySelector(".date").value;
-
-// updateUI(targetToDo.id, name, date);
