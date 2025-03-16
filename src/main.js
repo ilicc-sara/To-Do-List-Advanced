@@ -166,31 +166,25 @@ toDoList.addEventListener("click", function (e) {
   // prettier-ignore
   if (!e.target.classList.contains("delete-to-do-btn") && !e.target.classList.contains('check') && !e.target.classList.contains("edit-to-do-btn") && !e.target.classList.contains("submit-to-do-btn")) return;
   const target = e.target.closest(".to-do-item");
+
   // prettier-ignore
   const targetToDo = projectManager.activeProject.toDos.find(toDo => toDo.id === target.dataset.id);
 
-  function submitForm() {
+  function submitForm(e) {
     e.preventDefault();
+    const targetForm = e.target;
+    let name = targetForm.querySelector(".title").value;
+    let date = targetForm.querySelector(".date").value;
 
-    console.log("form submited");
-
-    let name = document.querySelector(".title").value;
-    let date = document.querySelector(".date").value;
-    // console.log(name);
-    // console.log(date);
     targetToDo.setIsEditing(false);
 
     targetToDo.setName(name);
     targetToDo.setDate(date);
-    console.log(targetToDo.name);
-    console.log(targetToDo.date);
 
     toDoList.innerHTML = "";
-    console.log(projectManager.activeProject); //*************************************************** */
     projectManager.activeProject.toDos.forEach((toDo) => {
       updateUI(toDo.id, toDo.name, toDo.date);
     });
-    console.log(projectManager.activeProject.toDos);
   }
 
   if (e.target.classList.contains("delete-to-do-btn")) {
@@ -200,10 +194,13 @@ toDoList.addEventListener("click", function (e) {
 
   if (e.target.classList.contains("check")) {
     targetToDo.setIsDone(e.target.checked);
-    console.log(projectManager.activeProject.toDos);
   }
 
   if (e.target.classList.contains("edit-to-do-btn")) {
+    projectManager.activeProject.toDos.forEach((toDo) => {
+      toDo.setIsEditing(false);
+      updateUI(toDo.id, toDo.name, toDo.date);
+    });
     targetToDo.setIsEditing(true);
 
     toDoList.innerHTML = "";
@@ -220,7 +217,7 @@ toDoList.addEventListener("click", function (e) {
               <div class="btn-cont"> <button type="submit" class="submit-to-do-btn">submit</button> <button type="button" class="delete-to-do-btn">delete</button> </div>
               <input class="check" type="checkbox" />
             </div>`;
-        toDoItem.className = "to-do-item";
+        toDoItem.className = "form";
         toDoList.appendChild(toDoItem);
 
         toDoItem.addEventListener("submit", submitForm);

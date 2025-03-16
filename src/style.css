@@ -228,7 +228,22 @@ label {
   transition: all 0.3s;
 }
 
+.form {
+  border: 0.5px solid rgba(0, 0, 0, 0.648);
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
 .to-do-item:hover {
+  background-color: rgba(0, 0, 0, 0.141);
+}
+
+.form:hover {
   background-color: rgba(0, 0, 0, 0.141);
 }
 
