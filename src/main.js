@@ -180,10 +180,10 @@ toDoList.addEventListener("click", function (e) {
     // console.log(date);
     targetToDo.setIsEditing(false);
 
-    // targetToDo.setName(name);
-    // targetToDo.setDate(date);
-    // console.log(targetToDo.name);
-    // console.log(targetToDo.date);
+    targetToDo.setName(name);
+    targetToDo.setDate(date);
+    console.log(targetToDo.name);
+    console.log(targetToDo.date);
 
     toDoList.innerHTML = "";
     console.log(projectManager.activeProject); //*************************************************** */
