@@ -157,21 +157,21 @@ label {
 }
 
 .confirm-to-do-btn {
-  background-color: rgba(121, 8, 8, 0.552);
+  background-image: linear-gradient(to top left, #518e4f, #7cd758);
 }
 
 .cancel-to-do-btn {
-  background-color: rgba(6, 77, 6, 0.562);
+  background-image: linear-gradient(to top left, #f05a7f, #f17177);
 }
 
 .confirm-to-do-btn:hover {
   cursor: pointer;
-  background-color: rgba(48, 4, 4, 0.552);
+  background-image: linear-gradient(to top left, #0b4609, #45ae1b);
 }
 
 .cancel-to-do-btn:hover {
   cursor: pointer;
-  background-color: rgba(5, 41, 5, 0.562);
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
 }
 
 .projects-list {
