@@ -46,7 +46,6 @@ class Project {
     this.projectName = projectName;
     this.id = crypto.randomUUID();
     this.toDos = [];
-    // this.isActive = false;
   }
 
   addToDo(toDo) {
@@ -56,10 +55,6 @@ class Project {
   removeToDo(id) {
     this.toDos = this.toDos.filter((item) => item.id !== id);
   }
-
-  // setIsActive(value) {
-  //   this.isActive = value;
-  // }
 }
 
 class ToDo {
