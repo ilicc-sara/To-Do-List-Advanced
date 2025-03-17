@@ -158,20 +158,24 @@ label {
 
 .confirm-to-do-btn {
   background-image: linear-gradient(to top left, #518e4f, #7cd758);
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
 }
 
 .cancel-to-do-btn {
   background-image: linear-gradient(to top left, #f05a7f, #f17177);
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
 }
 
 .confirm-to-do-btn:hover {
   cursor: pointer;
   background-image: linear-gradient(to top left, #0b4609, #45ae1b);
+  box-shadow: 0 0 15px rgb(0, 0, 0, 0.2);
 }
 
 .cancel-to-do-btn:hover {
   cursor: pointer;
   background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+  box-shadow: 0 0 15px rgb(0, 0, 0, 0.2);
 }
 
 .projects-list {
