@@ -86,7 +86,6 @@ class ToDo {
 const projectManager = new ProjectManager();
 
 function updateUI(id, name, date) {
-  // da bih omogucima da ova funkcija moze da pravi i formu morala bih da imam aktivni to do
   const toDoItem = document.createElement("li");
   toDoItem.setAttribute("data-id", id);
 
@@ -115,6 +114,8 @@ addProjectForm.addEventListener("submit", function (e) {
 
   projectsList.appendChild(projectItem);
   inputProjectNameEl.value = "";
+
+  addProjectForm.classList.add("hidden");
 });
 
 projectsList.addEventListener("click", function (e) {
@@ -125,10 +126,6 @@ projectsList.addEventListener("click", function (e) {
 
   if (e.target.classList.contains("project-item")) {
     projectManager.setActiveProject(target.dataset.id);
-
-    // projectManager.projects.forEach((project) => project.setIsActive(false));
-    // projectManager.activeProject.setIsActive(true);
-    // const targetProject = projectManager.projects.find(project => project.id === target.dataset.id);
 
     projectItems.forEach((item) => item.classList.remove("active"));
     target.classList.add("active");
@@ -157,6 +154,8 @@ addToDoForm.addEventListener("submit", function (e) {
 
   inputToDoNameEl.value = "";
   inputDateEl.value = "";
+
+  addToDoForm.classList.add("hidden");
 });
 
 toDoList.addEventListener("click", function (e) {
