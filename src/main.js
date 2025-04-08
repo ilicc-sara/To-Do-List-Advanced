@@ -115,7 +115,7 @@ addProjectForm.addEventListener("submit", function (e) {
   projectsList.appendChild(projectItem);
   inputProjectNameEl.value = "";
 
-  addProjectForm.classList.add("hidden");
+  // addProjectForm.classList.add("hidden");
 });
 
 projectsList.addEventListener("click", function (e) {
@@ -155,7 +155,7 @@ addToDoForm.addEventListener("submit", function (e) {
   inputToDoNameEl.value = "";
   inputDateEl.value = "";
 
-  addToDoForm.classList.add("hidden");
+  // addToDoForm.classList.add("hidden");
 });
 
 toDoList.addEventListener("click", function (e) {
