@@ -155,6 +155,10 @@ addToDoForm.addEventListener("submit", function (e) {
   inputToDoNameEl.value = "";
   inputDateEl.value = "";
 
+  if (!projectManager.activeProject) {
+    alert("You need to click on Project on Which you want to add To-Do");
+  }
+
   // addToDoForm.classList.add("hidden");
 });
 
