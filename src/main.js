@@ -145,18 +145,18 @@ projectsList.addEventListener("click", function (e) {
 
 addToDoForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  const toDo = new ToDo(inputToDoName, inputDate);
-
-  projectManager.activeProject.addToDo(toDo);
-
-  updateUI(toDo.id, inputToDoName, inputDate);
-  console.log(projectManager.projects);
-
-  inputToDoNameEl.value = "";
-  inputDateEl.value = "";
-
   if (!projectManager.activeProject) {
     alert("You need to click on Project on Which you want to add To-Do");
+  } else {
+    const toDo = new ToDo(inputToDoName, inputDate);
+
+    projectManager.activeProject.addToDo(toDo);
+
+    updateUI(toDo.id, inputToDoName, inputDate);
+    console.log(projectManager.projects);
+
+    inputToDoNameEl.value = "";
+    inputDateEl.value = "";
   }
 
   // addToDoForm.classList.add("hidden");
